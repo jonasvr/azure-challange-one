@@ -20,12 +20,14 @@ export default {
       const { clientPrincipal } = payload;
       return clientPrincipal;
     },
+    testOutput(result) {
+      console.log(result);
+      return 'test';
+    },
   },
   beforeMount() {
-     this.getUserInfo()
-    .then(function(result){
-       console.log(result);
-    });
+    this.getUserInfo()
+      .then((result) => this.testOutput(result));
   },
 };
 </script>
