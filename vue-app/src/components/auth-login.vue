@@ -15,10 +15,6 @@ export default {
       window.location.href = url;
     },
   },
-  beforeMount() {
-    this.getUserInfo()
-      .then((result) => this.testOutput(result));
-  },
 };
 </script>
 

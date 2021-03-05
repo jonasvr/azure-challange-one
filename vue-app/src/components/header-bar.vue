@@ -27,16 +27,18 @@ export default {
   },
   methods: {
     ...mapActions('userInfo', ['getUserInfo']),
+    ...mapActions('user-utils', ['getUser']),
     logUser(result) {
       this.loggedIn = true;
       this.user = result;
       return 'ok';
     },
   },
-  // beforeMount() {
-  //   getUserInfo()
-  //     .then((result) => this.logUser(result));
-  // },
+  beforeMount() {
+    getUser();
+    getUserInfo()
+      .then((result) => this.logUser(result));
+  },
 };
 </script>
 
