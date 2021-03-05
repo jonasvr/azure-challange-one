@@ -28,6 +28,7 @@ export default {
     // console.log(userinfo['value']);
     console.log(userinfo.identityProvider);
     // console.log(userinfo['identityProvider']);
+    console.log(userinfo.data);
   },
 };
 </script>
