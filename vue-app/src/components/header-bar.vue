@@ -8,11 +8,37 @@ export default {
     HeaderBarBrand,
     AuthLogin,
   },
+  props: {
+    user: {
+      type: Object,
+      default: () => '',
+    },
+    loggedIn: {
+      type: Boolean,
+      default: () => false,
+    },
+  },
   data() {
     return {
     };
   },
   methods: {
+    async getUserInfo() {
+      const response = await fetch('/.auth/me');
+      const payload = await response.json();
+      const { clientPrincipal } = payload;
+      return clientPrincipal;
+    },
+    logUser(result) {
+      console.log(result.userDetails);
+      loggedIn = true;
+      user = result;
+      return 'ok';
+    },
+  },
+  beforeMount() {
+    this.getUserInfo()
+      .then((result) => this.logUser(result));
   },
 };
 </script>
@@ -24,6 +50,7 @@ export default {
       <div class="navbar-menu">
         <div class="navbar-start">
           <router-link class="navbar-item nav-home" to="/">Home</router-link>
+          <div v-if="loggedIn" class="navbar-item">{{ user.userDetails }}</div>
         </div>
          <div class="navbar-end">
             <AuthLogin></AuthLogin>

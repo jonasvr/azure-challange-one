@@ -14,16 +14,6 @@ export default {
       const url = `/.auth/login/${this.provider}?${redirect}`;
       window.location.href = url;
     },
-    async getUserInfo() {
-      const response = await fetch('/.auth/me');
-      const payload = await response.json();
-      const { clientPrincipal } = payload;
-      return clientPrincipal;
-    },
-    testOutput(result) {
-      console.log(result.userDetails);
-      return 'test';
-    },
   },
   beforeMount() {
     this.getUserInfo()
