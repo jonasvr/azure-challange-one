@@ -1,12 +1,14 @@
 <script>
 import HeaderBarBrand from '@/components/header-bar-brand.vue';
 import AuthLogin from '@/components/auth-login.vue';
+import AuthLogout from '@/components/auth-logout.vue';
 
 export default {
   name: 'HeaderBar',
   components: {
     HeaderBarBrand,
     AuthLogin,
+    AuthLogout,
   },
   props: {
     user: {
@@ -53,8 +55,9 @@ export default {
           <div v-if="loggedIn" class="navbar-item">{{ user.userDetails }}</div>
         </div>
          <div class="navbar-end">
-            <AuthLogin></AuthLogin>
-        </div>
+            <AuthLogin class="navbar-item"></AuthLogin>
+            <AuthLogout class="navbar-item"></AuthLogout>
+          </div>
       </div>
     </nav>
   </header>
