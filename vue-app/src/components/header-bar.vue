@@ -31,8 +31,8 @@ export default {
     },
     logUser(result) {
       console.log(result.userDetails);
-      loggedIn = true;
-      user = result;
+      this.loggedIn = true;
+      this.user = result;
       return 'ok';
     },
   },
