@@ -1,4 +1,5 @@
 <script>
+import { mapActions } from 'vuex';
 import HeaderBarBrand from '@/components/header-bar-brand.vue';
 import AuthLogin from '@/components/auth-login.vue';
 import AuthLogout from '@/components/auth-logout.vue';
@@ -25,23 +26,17 @@ export default {
     };
   },
   methods: {
-    async getUserInfo() {
-      const response = await fetch('/.auth/me');
-      const payload = await response.json();
-      const { clientPrincipal } = payload;
-      return clientPrincipal;
-    },
+    ...mapActions('userInfo', ['getUserInfo']),
     logUser(result) {
-      console.log(result.userDetails);
       this.loggedIn = true;
       this.user = result;
       return 'ok';
     },
   },
-  beforeMount() {
-    this.getUserInfo()
-      .then((result) => this.logUser(result));
-  },
+  // beforeMount() {
+  //   getUserInfo()
+  //     .then((result) => this.logUser(result));
+  // },
 };
 </script>
 
