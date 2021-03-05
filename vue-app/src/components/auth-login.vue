@@ -22,13 +22,10 @@ export default {
     },
   },
   beforeMount() {
-    const userinfo = await this.getUserInfo();
-    console.log(userinfo);
-    console.log(userinfo.value);
-    // console.log(userinfo['value']);
-    console.log(userinfo.identityProvider);
-    // console.log(userinfo['identityProvider']);
-    console.log(userinfo.data);
+     this.getUserInfo()
+    .then(function(result){
+       console.log(result);
+    });
   },
 };
 </script>
