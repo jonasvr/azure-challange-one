@@ -21,7 +21,7 @@ export default {
       return clientPrincipal;
     },
     testOutput(result) {
-      console.log(result);
+      console.log(result.userDetails);
       return 'test';
     },
   },
