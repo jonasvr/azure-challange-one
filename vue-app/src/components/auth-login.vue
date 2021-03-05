@@ -22,7 +22,7 @@ export default {
     },
   },
   beforeMount() {
-    const userinfo = this.getUserInfo();
+    const userinfo = await this.getUserInfo();
     console.log(userinfo);
     console.log(userinfo.value);
     // console.log(userinfo['value']);
