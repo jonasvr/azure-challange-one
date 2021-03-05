@@ -25,6 +25,9 @@ export default {
     const userinfo = this.getUserInfo();
     console.log(userinfo);
     console.log(userinfo.value);
+    // console.log(userinfo['value']);
+    console.log(userinfo.identityProvider);
+    // console.log(userinfo['identityProvider']);
   },
 };
 </script>
