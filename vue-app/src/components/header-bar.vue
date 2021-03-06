@@ -1,5 +1,5 @@
 <script>
-import { mapActions } from 'vuex';
+// import { mapActions } from 'vuex';
 import HeaderBarBrand from '@/components/header-bar-brand.vue';
 import AuthLogin from '@/components/auth-login.vue';
 import AuthLogout from '@/components/auth-logout.vue';
@@ -12,33 +12,33 @@ export default {
     AuthLogout,
   },
   props: {
-    user: {
-      type: Object,
-      default: () => {},
-    },
-    loggedIn: {
-      type: Boolean,
-      default: () => false,
-    },
+    // user: {
+    //   type: Object,
+    //   default: () => {},
+    // },
+    // loggedIn: {
+    //   type: Boolean,
+    //   default: () => false,
+    // },
   },
   data() {
     return {
     };
   },
   methods: {
-    ...mapActions('userInfo', ['getUserInfo']),
-    ...mapActions('user-utils', ['getUser']),
-    logUser(result) {
-      this.loggedIn = true;
-      this.user = result;
-      return 'ok';
-    },
+    // ...mapActions('userInfo', ['getUserInfo']),
+    // ...mapActions('user-utils', ['getUser']),
+    // logUser(result) {
+    //   this.loggedIn = true;
+    //   this.user = result;
+    //   return 'ok';
+    // },
   },
-  beforeMount() {
-    this.getUser();
-    this.getUserInfo()
-      .then((result) => this.logUser(result));
-  },
+  // beforeMount() {
+  //   this.getUser();
+  //   this.getUserInfo()
+  //     .then((result) => this.logUser(result));
+  // },
 };
 </script>
 
@@ -49,7 +49,7 @@ export default {
       <div class="navbar-menu">
         <div class="navbar-start">
           <router-link class="navbar-item nav-home" to="/">Home</router-link>
-          <div v-if="loggedIn" class="navbar-item">{{ user.userDetails }}</div>
+          <!-- <div v-if="loggedIn" class="navbar-item">{{ user.userDetails }}</div> -->
         </div>
          <div class="navbar-end">
             <AuthLogin class="navbar-item"></AuthLogin>

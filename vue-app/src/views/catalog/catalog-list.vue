@@ -1,6 +1,7 @@
 <script>
 import { mapActions } from 'vuex';
 import CardContent from '@/components/card-content.vue';
+import getUserInfo from '@/assets/js/userInfo';
 
 export default {
   name: 'CatalogList',
@@ -31,14 +32,14 @@ export default {
   },
   methods: {
     ...mapActions('catalog', ['postOrder']),
-    ...mapActions('userInfo', ['getUserInfo']),
+    // ...mapActions('userInfo', ['getUserInfo']),
     logUser(result) {
       this.loggedIn = true;
       console.log(result);
       return 'ok';
     },
     order(icecreamId) {
-      this.getUserInfo()
+      getUserInfo()
         .then((result) => this.logUser(result));
       if (this.loggedIn) {
         const data = {
