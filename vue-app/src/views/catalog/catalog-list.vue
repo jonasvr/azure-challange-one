@@ -53,6 +53,7 @@ export default {
         };
         console.log(data);
         this.postOrder(data);
+        alert('pre-order placed');
       }
     },
   },
