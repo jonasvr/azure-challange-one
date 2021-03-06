@@ -1,4 +1,5 @@
 <script>
+import { mapActions } from 'vuex';
 import CardContent from '@/components/card-content.vue';
 
 export default {
@@ -12,6 +13,14 @@ export default {
       type: String,
       default: () => '',
     },
+    loggedIn: {
+      type: Boolean,
+      default: () => false,
+    },
+    user: {
+      type: Object,
+      default: () => {},
+    },
   },
   components: {
     CardContent,
@@ -21,6 +30,23 @@ export default {
     };
   },
   methods: {
+    ...mapActions('catalog', ['postOrder']),
+    ...mapActions('userInfo', ['getUserInfo']),
+    logUser(result) {
+      this.loggedIn = true;
+      console.log(result);
+      return 'ok';
+    },
+    order(icecreamId) {
+      this.getUserInfo()
+        .then((result) => this.logUser(result));
+      if (this.loggedIn) {
+        const data = {
+          id: icecreamId,
+        };
+        this.postOrder(data);
+      }
+    },
   },
 };
 </script>
@@ -37,7 +63,7 @@ export default {
         :key="icecream.Id"
         role="presentation"
       >
-        <div class="card">
+        <div class="card" v-on:click="order(icecream.Id)">
           <CardContent
             :name="icecream.Name"
             :description="icecream.Description"

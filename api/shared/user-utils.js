@@ -1,4 +1,5 @@
 const getUser = (req) => {
+    console.log('in');
     const header = req.headers["x-ms-client-principal"];
     if (header != undefined) {
         const encoded = Buffer.from(header, "base64");

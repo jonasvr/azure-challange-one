@@ -34,11 +34,11 @@ export default {
       }
     },
   },
-  beforeMount() {
-    const data = { id: 1 };
-    console.log(data);
-    this.postOrder(data);
-  },
+  // beforeMount() {
+  //   const data = { id: 1 };
+  //   console.log(data);
+  //   this.postOrder(data);
+  // },
 };
 </script>
 
