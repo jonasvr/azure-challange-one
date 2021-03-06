@@ -34,7 +34,9 @@ export default {
     ...mapActions('catalog', ['postOrder']),
     // ...mapActions('userInfo', ['getUserInfo']),
     logUser(result) {
-      this.loggedIn = true;
+      if (typeof result !== 'undefined') {
+        this.loggedIn = true;
+      }
       console.log(result);
       return 'ok';
     },
