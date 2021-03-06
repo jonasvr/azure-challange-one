@@ -24,7 +24,7 @@ export default {
     ...mapGetters('catalog', { catalog: 'catalog' }),
   },
   methods: {
-    ...mapActions('catalog', ['getCatalogAction']),
+    ...mapActions('catalog', ['getCatalogAction', 'postOrder']),
     async getCatalog() {
       this.errorMessage = undefined;
       try {
@@ -33,6 +33,11 @@ export default {
         this.errorMessage = 'Unauthorized';
       }
     },
+  },
+  beforeMount() {
+    const data = { id: 1 };
+    console.log(data);
+    this.postOrder(data);
   },
 };
 </script>

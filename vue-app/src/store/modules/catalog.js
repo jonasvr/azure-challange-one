@@ -28,6 +28,16 @@ export default {
         throw new Error(error);
       }
     },
+    async postOrder(state, data) {
+      console.log(data);
+      try {
+        console.log('test');
+        await axios.post(`${API}/orders`, { id: data.id, test: 'test' });
+      } catch (error) {
+        captains.error(error);
+        throw new Error(error);
+      }
+    },
   },
   getters: {
     catalog: (state) => state.catalog,

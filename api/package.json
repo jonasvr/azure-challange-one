@@ -7,7 +7,9 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/storage-queue": "^12.3.0",
+    "@azure/arm-storage": "^15.2.0",
+    "@azure/ms-rest-nodeauth": "^3.0.0",
+    "@azure/storage-queue": "^12.3.1",
     "tedious": "^11.0.3"
   },
   "devDependencies": {}

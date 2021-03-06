@@ -14,7 +14,7 @@ export default {
   props: {
     user: {
       type: Object,
-      default: () => '',
+      default: () => {},
     },
     loggedIn: {
       type: Boolean,
@@ -35,8 +35,8 @@ export default {
     },
   },
   beforeMount() {
-    getUser();
-    getUserInfo()
+    this.getUser();
+    this.getUserInfo()
       .then((result) => this.logUser(result));
   },
 };
