@@ -43,10 +43,12 @@ export default {
     order(icecreamId) {
       getUserInfo()
         .then((result) => this.logUser(result));
+      console.log(this.loggedIn);
       if (this.loggedIn) {
         const data = {
           id: icecreamId,
         };
+        console.log(data);
         this.postOrder(data);
       }
     },
