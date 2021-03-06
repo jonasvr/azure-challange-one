@@ -34,7 +34,10 @@ export default {
     ...mapActions('catalog', ['postOrder']),
     // ...mapActions('userInfo', ['getUserInfo']),
     logUser(result) {
-      if (typeof result !== 'undefined') {
+      if (typeof result === 'undefined') {
+        console.log('undefined user');
+        this.loggedIn = false;
+      } else {
         this.loggedIn = true;
       }
       console.log(result);
